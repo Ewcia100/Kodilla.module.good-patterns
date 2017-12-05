@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public final class FlightFinder {
 
     public List<String> findAllFlightsFrom(String cityFrom) {
-        List<String> flightsFrom = FlightDatabase.flightSet.stream()
+        List<String> flightsFrom = FlightDatabase.accessToSet().stream()
                 .filter(flight -> flight.getFlightFrom().equals(cityFrom))
                 .map(flight -> flight.getFlightTo())
                 .collect(Collectors.toList());
@@ -19,7 +19,7 @@ public final class FlightFinder {
     }
 
     public List<String> findAllFlightsTo(String cityTo) {
-        List<String> flightsTo = FlightDatabase.flightSet.stream()
+        List<String> flightsTo = FlightDatabase.accessToSet().stream()
                 .filter(flight -> flight.getFlightTo().equals(cityTo))
                 .map(flight -> flight.getFlightFrom())
                 .collect(Collectors.toList());

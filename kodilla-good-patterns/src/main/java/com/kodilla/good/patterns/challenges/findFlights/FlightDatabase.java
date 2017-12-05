@@ -14,7 +14,7 @@ public final class FlightDatabase {
     private static final String LOD = "Łódź";
     private static final String RZE = "Rzeszów";
 
-    public static Set<Flight> flightSet = new HashSet<>();
+    private static Set<Flight> flightSet = new HashSet<>();
 
     static {
         flightSet.add(new Flight(WAW, LUB));
@@ -30,13 +30,11 @@ public final class FlightDatabase {
         flightSet.add(new Flight(WR, WAW));
         flightSet.add(new Flight(LUB, WAW));
         flightSet.add(new Flight(LUB, RZE));
-
     }
 
-    public Set<Flight> getFlightSet() {
+    public static Set<Flight> accessToSet() {
         return new HashSet<>(flightSet);
     }
-
 
     @Override
     public String toString() {
